@@ -1,4 +1,5 @@
-<div>
-    Hello anotherRoot
-</div>
-document.getElementById('anotherRoot').
+function myFunction() {
+    console.log('heyy');
+    var x = document.getElementById("anotherRoot");
+    x.style.color = "red";
+  }

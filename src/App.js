@@ -1,8 +1,21 @@
-
-var element = <h1>Hello, world!</h1>;
+// import  myComponent  from "./myComponent";
+// var element = <h1>Hello, world!</h1>;
+// const mySecondElement =
+// element
+ 
+// ;
+const myTestComponent = () => {
+  return (
+    <div>
+        <p> from second test element</p>
+    </div>
+  )
+}
 function App() {
   return (
-    element
+    // element,
+    myTestComponent()
+    // mySecondElement
   );
 }
 
