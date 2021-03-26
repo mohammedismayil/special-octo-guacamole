@@ -17,15 +17,6 @@ inside another div - so life is full of divs
 
    );
 }
-function commentComponent(props){
-return (
-<div>
- <p> { props.name }</p>
 
- <p> { props.comment }</p>
-</div>
-);
 
-}
-export default commentComponent
-// export default Welcome
+export default Welcome

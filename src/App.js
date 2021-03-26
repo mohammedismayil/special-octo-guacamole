@@ -1,6 +1,6 @@
 import  myComponent  from "./myComponent";
-import  commentComponent  from "./myComponent";
-
+import  Another  from "./myAnotherComponent";
+import  Welcome  from "./myComponent";
 // var element = <h1>Hello, world!</h1>;
 // const mySecondElement =
 // element
@@ -13,10 +13,16 @@ const myTestComponent = () => {
     </div>
   )
 }
-const comment = {
+const comment = [{
   name  : "ismayil" ,
   comment : "hi da deii epdi iruka"
-};
+},{
+  name  : "ajith" ,
+  comment : "hi da deii epdi iruka"
+},{
+  name  : "john" ,
+  comment : "hi da deii epdi iruka"
+}] ;
 function App() {
   return (
     // // element,
@@ -24,8 +30,9 @@ function App() {
     //   <h1>i am a header</h1>
     //   i am div inside app </div>
     <div>
+      <Another comments = {comment}  />
 {/* <Welcome /> */}
-<commentComponent />
+
     </div>
      
       // myComponent()
