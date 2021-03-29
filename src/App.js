@@ -1,6 +1,7 @@
 import  myComponent  from "./myComponent";
 import  Another  from "./myAnotherComponent";
 import  Welcome  from "./myComponent";
+
 // var element = <h1>Hello, world!</h1>;
 // const mySecondElement =
 // element
@@ -14,14 +15,17 @@ const myTestComponent = () => {
   )
 }
 const comment = [{
-  name  : "ismayil" ,
-  comment : "hi da deii epdi iruka"
+  "name"  : "ismayil" ,
+  "comment" : "hi da deii epdi iruka",
+  image:"{process.env.PUBLIC_URL + '/public/Assets/IMG_0040.JPG'}"
 },{
   name  : "ajith" ,
-  comment : "hi da deii epdi iruka"
+  comment : "ennada panreenga , paathu romba naal aachu",
+  image:"{process.env.PUBLIC_URL + '/public/Assets/IMG_0040.JPG'}"
 },{
   name  : "john" ,
-  comment : "hi da deii epdi iruka"
+  comment : "innumada uyiroda irukeenga",
+  image:"{process.env.PUBLIC_URL + '/public/Assets/IMG_0040.JPG'}"
 }] ;
 function App() {
   return (
