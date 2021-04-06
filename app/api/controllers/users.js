@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
  create: function(req, res, next) {
   
-  userModel.create({ name: req.body.name, email: req.body.email, password: req.body.password }, function (err, result) {
+  userModel.create({ name: req.body.name, email: req.body.email, password: req.body.password ,age: req.body.age}, function (err, result) {
       if (err) 
        next(err);
       else
@@ -24,6 +24,16 @@ res.json({status:"success", message: "user found!!!", data:{user: userInfo, toke
 res.json({status:"error", message: "Invalid email/password!!!", data:null});
 }
      }
+    });
+ },
+ update: function(req,respo,next){
+   userModel.updateOne({ _id: req.body.id },
+      { $set: { name: req.body.name, email:req.body.email } }, function(err, responsefrom) {
+      if (err) throw err;
+      console.log("1 document updated");
+      
+      // userModel.close();
+      respo.json({status:"success", message: "user found!!!", data:{user: responsefrom}})
     });
  },
 }
