@@ -16,11 +16,11 @@ movieModel.find({}, function(err, movies){
    if (err){
     next(err);
    } else{
-    for (let movie of movies) {
-     moviesList.push({id: movie._id, name: movie.name, released_on: movie.released_on});
-    }
-    res.json({status:"success", message: "Movies list found!!!", data:{movies: moviesList}});
-       
+    // for (let movie of movies) {
+    //  moviesList.push({id: movie._id, name: movie.name, released_on: movie.released_on});
+    // }
+    // res.json({status:"success", message: "Movies list found!!!", movies: moviesList});
+    res.json({movies});
    }
 });
  },
