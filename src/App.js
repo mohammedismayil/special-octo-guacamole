@@ -40,8 +40,8 @@ class App extends React.Component {
     this.state = {
       items: [],
       isLoaded: false,
-      name:"",
-      released_on:"",
+      name:'tet',
+      released_on:'25 noav',
     };
   }
   handleChange(event){
@@ -52,15 +52,19 @@ class App extends React.Component {
     })
   }
   insertUser(event){
-    // event.preventDefault();
+    event.preventDefault();
     // alert('A name was submitted: ' + this.state.value);
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: JSON.stringify({name:this.state.name.value,released_on:this.state.released_on.value})
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({name:this.state.name,released_on:this.state.released_on})
+     
     };
     fetch('http://localhost:3000/listmovies', requestOptions)
       .then(response => response.json())
+
+
+      .then((data) => console.log('This is your data', data));
       // .then(data => this.setState({ postId: data.id }));
     
   }
@@ -97,9 +101,9 @@ class App extends React.Component {
         </ul>
 
          <label>Name</label>
-<input type='text' name="name" value={this.state.value} onChange = {this.handleChange.bind(this)}></input>
+<input type='text' name="name" value={this.state.name.value} onChange = {this.handleChange.bind(this)}></input>
 <label>released on</label>
-<input type='text' name="released_on"  value={this.state.value} onChange = {this.handleChange.bind(this)}></input>
+<input type='text' name="released_on"  value={this.state.released_on.value} onChange = {this.handleChange.bind(this)}></input>
 <button type='submit'>insert Movie</button>
         </form> 
       );

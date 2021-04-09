@@ -13,7 +13,11 @@ app.set('secretKey', 'nodeRestApi'); // jwt secret token
 // connection to mongodb
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(logger('dev'));
-
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+extended:true
+}));
 app.use(cors()) // Use this after the variable declaration
 app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', function(req, res){
