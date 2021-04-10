@@ -47,8 +47,9 @@ create: function(req, res, next) {
       if (err) 
        next(err);
       else
-       res.json({status: "success", message: "Movie added successfully!!!", data: null});
-      
+      movieModel.find({}, function(err, movies){
+       res.json({status: "success", message: "Movie added successfully!!!", data: movies});
     });
- },
+  });
+}
 }
