@@ -63,4 +63,4 @@ app.listen(3000, function(){
  console.log('Node server listening on port 3000');
 });
 // connection to mongodb
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
