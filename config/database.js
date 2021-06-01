@@ -2,7 +2,7 @@
 console.log('in db config');
 const mongoose = require('mongoose');
 const mongoDB = 'mongodb://localhost/jwt';
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 module.exports = mongoose;
