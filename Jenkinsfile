@@ -3,7 +3,7 @@ pipeline {
      stages {
         stage("Build") {
             steps {
-                 echo 'Hi, GeekFlare. Starting to build the App.'
+                 echo 'Hi, here i come GeekFlare. Starting to build the App.'
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
