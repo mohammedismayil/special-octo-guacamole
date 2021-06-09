@@ -16,7 +16,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 app.get('/', (req, res) => {
     // res.send('Hello/ World!')
 
-    res.json({"user_name":"ismayilll","age":24})
+    res.json({"user_name":"ismayilll","age":240})
 
 
 
