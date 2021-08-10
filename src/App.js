@@ -1,29 +1,19 @@
 
 import './css/styles.css';
-import './Assets/Images/card-top.jpg'
-import Card from './Components/Card';
+
+
+import Cards from './Components/Cards';
+
+import NavBar from './Components/NavBar';
 function App() {
-  var arr = ["1","2","3"];
-  const list = []
 
-  arr.forEach((product) => {
-    list.push(<Card></Card>)
-  })
   return (
-   
+    <div>
 
-    <div className="grid grid-cols-3">
-<Card></Card>
-<Card></Card>
-<Card></Card> 
-<Card></Card>
-<Card></Card>
-<Card></Card>   
+   <NavBar></NavBar>
+{/* <Cards></Cards> */}
     </div>
 
-
-
-  
   );
 }
 
