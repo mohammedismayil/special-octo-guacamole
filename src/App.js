@@ -10,7 +10,13 @@ function App() {
   return (
     <div>
 
-   <NavBar></NavBar>
+   {/* <NavBar></NavBar> */}
+   <div className="text-center text-4xl flex">
+     <p>Again</p>
+<p>Random Users</p>
+<p>Again</p>
+<p>Random Users</p>
+   </div>
 <Cards></Cards>
     </div>
 
