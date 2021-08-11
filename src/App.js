@@ -11,7 +11,7 @@ function App() {
     <div>
 
    <NavBar></NavBar>
-{/* <Cards></Cards> */}
+<Cards></Cards>
     </div>
 
   );
