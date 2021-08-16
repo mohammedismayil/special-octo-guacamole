@@ -15,7 +15,9 @@ export default class Card extends Component {
 
     render() {
         return (
-           <div className="lg:w-1/2 sm:w-full rounded shadow-lg mx-5 my-5 bg-purple-700"> 
+
+            <div className="flex lg:w-1/2 sm:w-full">
+           <div className="w-full rounded shadow-lg mx-5 my-5 bg-purple-700"> 
   
   <div className="flex justify-center pt-5 pb-1"> 
   <img className="rounded-full  bg-pink-600 border-2" src={this.props.profile.picture.large} alt="Sunset in the mountains"></img>
@@ -31,6 +33,8 @@ export default class Card extends Component {
   </div>
 
     </div>
+            </div>
+
         )
     }
 }
