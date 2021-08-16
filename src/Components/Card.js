@@ -15,16 +15,21 @@ export default class Card extends Component {
 
     render() {
         return (
-           <div className="max-w-xm rounded overflow-hidden shadow-lg my-2 mx-3 content-center bg-purple-700  h-auto"> 
-  <div className="flex justify-center" >
-  <img className="rounded-full justify-center bg-pink-600 border-2" src={this.props.profile.picture.large} alt="Sunset in the mountains"></img>
+           <div className="lg:w-1/2 sm:w-full rounded shadow-lg mx-5 my-5 bg-purple-700"> 
+  
+  <div className="flex justify-center pt-5 pb-1"> 
+  <img className="rounded-full  bg-pink-600 border-2" src={this.props.profile.picture.large} alt="Sunset in the mountains"></img>
   </div>
   
-   <div className="font-bold text-center text" >{this.props.profile.name.first} {this.props.profile.name.last}
+  <div>
+
+  <div className="font-bold text-center text" >{this.props.profile.name.first} {this.props.profile.name.last}
    </div>
-   <div className="font-light text-center">
+   <div className="font-light text-center pb-5 pt-1">
    {this.props.profile.email}
    </div>
+  </div>
+
     </div>
         )
     }

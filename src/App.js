@@ -11,7 +11,7 @@ function App() {
     <div>
 
    {/* <NavBar></NavBar> */}
-   <div className="text-center text-4xl flex">
+   <div>
      <p>Again</p>
 <p>Random Users</p>
 <p>Again</p>

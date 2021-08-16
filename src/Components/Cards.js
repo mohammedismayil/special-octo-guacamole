@@ -44,7 +44,7 @@ componentDidMount() {
       return <div>Loading...</div>;
     }else {
       return (
-        <div className="grid grid-cols-5">
+        <div className="flex  flex-wrap mx-5 my-5 bg-yellow-600">
             {
               items.map( item => (
                 <Card key={item.id.value} profile={item}></Card>
