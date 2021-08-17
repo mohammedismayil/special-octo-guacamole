@@ -14,7 +14,7 @@ export default class Cards extends Component {
       };
 }
 componentDidMount() {
-    fetch("https://randomuser.me/api?results=50")
+    fetch("https://randomuser.me/api?results=5")
       .then(res => res.json())
       .then(
         (result) => {
@@ -44,7 +44,15 @@ componentDidMount() {
       return <div>Loading...</div>;
     }else {
       return (
-        <div className="flex flex-wrap mx-1 my-5 bg-yellow-600">
+<div>
+<div>
+
+<p className="font-extrabold text-6xl text-center">Random Users</p>
+   </div>
+
+
+        <div className="flex flex-wrap justify-center mx-1 my-5">
+             
             {
               items.map( item => (
                 <Card key={item.id.value} profile={item}></Card>
@@ -52,6 +60,8 @@ componentDidMount() {
               ))
             }
         </div>
+</div>
+
        
       );
     }

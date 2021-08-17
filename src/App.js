@@ -11,12 +11,7 @@ function App() {
     <div>
 
    {/* <NavBar></NavBar> */}
-   <div>
-     <p>Again</p>
-<p>Random Users</p>
-<p>Again</p>
-<p>Random Users</p>
-   </div>
+
 <Cards></Cards>
     </div>
 
