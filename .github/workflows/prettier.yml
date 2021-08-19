@@ -18,8 +18,8 @@ jobs:
     - name: pushing to DockerHub
       run: |
         docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"
-        docker build . --file Dockerfile -t ismayil10/mohammedismayil.github.io
-        docker push ismayil10/mohammedismayil.github.io
+        docker build . --file Dockerfile -t ismayil10/special-octo
+        docker push ismayil10/special-octo
     - name: Configure SSH
       run: |
           git config --global user.email "mohammedismayil10@gmail.com"
@@ -39,6 +39,6 @@ jobs:
     - name: Pulling and run from DockerHub
       run: |
          ssh staging 'docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"'
-         ssh staging 'docker pull ismayil10/mohammedismayil.github.io'
-         ssh staging 'docker stop githubportfolio || true && docker rm githubportfolio || true'
-         ssh staging 'docker run -e REACT_APP_GITHUB_TOKEN="${{ secrets.REACT_APP_GITHUB_TOKEN}}" -i -p 4000:4000 --name githubportfolio -d ismayil10/mohammedismayil.github.io'
+         ssh staging 'docker pull ismayil10/special-octo'
+         ssh staging 'docker stop special-octo || true && docker rm special-octo || true'
+         ssh staging 'docker run -i -p 3000:3000 --name special-octo -d ismayil10/special-octo'
