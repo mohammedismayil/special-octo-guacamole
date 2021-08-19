@@ -7,7 +7,7 @@ class FullscreenLanding extends Component {
             <div>
 <div className="my-5 flex justify-center content-center ">
                 
-               
+               //
                 <div className="background-image:http://traversymedia.com/downloads/assets/beachshowcase.jpg justify-center m-auto">
                     <h1 className="text-5xl font-sans font-bold content-center justify-center text-center
                     ">Welcome To The Beach</h1>
