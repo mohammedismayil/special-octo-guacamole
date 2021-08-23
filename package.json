@@ -18,7 +18,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco PORT=4000 start",
+    "start": " set PORT=4000 && craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
