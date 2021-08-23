@@ -3,7 +3,7 @@
     
 import React, { Component } from 'react'
 import Card from './Card';
-
+//moving to from azure to google cloud server
 export default class Cards extends Component {
   constructor(props){
     super(props);
