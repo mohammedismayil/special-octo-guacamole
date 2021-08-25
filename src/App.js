@@ -10,7 +10,7 @@ import BurgerRestaurant from './Components/BurgerRestaurant';
 function App() {
 
   return (
-    <div>
+    <div className="bg-red-500">
 
    {/* <NavBar></NavBar> */}
 
