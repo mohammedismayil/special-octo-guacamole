@@ -1,4 +1,4 @@
-import '/home/ismayil/ismayildemo/special-octo-guacamole/src/css/styles.css';
+// import '/home/ismayil/ismayildemo/special-octo-guacamole/src/css/styles.css';
 import React, {
     Component
 } from 'react'
