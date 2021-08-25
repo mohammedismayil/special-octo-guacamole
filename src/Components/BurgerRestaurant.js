@@ -9,6 +9,7 @@ export default class BurgerRestaurant extends Component {
             <div className="text-center">
    
               {/* //hello from the new mouse and keyboard */}
+            {/* humanity is greater than anything  */}
               navigation we need to add in this 
             </div>
         )
