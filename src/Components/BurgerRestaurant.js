@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import BurgerCard from './BurgerCard'
 // import Cards from './Cards'
 
 export default class BurgerRestaurant extends Component {
-    
+  
     render() {
+      var myArr = ["1","2","3","4","5","6","7"];
         // const [navbarOpen, setNavbarOpen] = React.useState(false);
         return (
 
@@ -18,102 +20,15 @@ export default class BurgerRestaurant extends Component {
        OUR OFFERS
     </div>
 
-    <div className="flex mx-32 my-10">
-       <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
+    <div className="flex flex-wrap justify-center mx-20 my-10">
 
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
+       {myArr.map(function (value, index, array) {
+       return <BurgerCard> </BurgerCard>
+        })
+            }
+     
+      
 
-        </div>
-
-        <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
-
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
-
-        </div>
-        <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
-
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
-
-        </div>
-
-    </div>
-    <div className="flex mx-32 my-10">
-       <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
-
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
-
-        </div>
-
-        <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
-
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
-
-        </div>
-        <div className="w-1/3 shadow-2xl rounded-xl m-5">
-            <div className="mx-10 justify-center">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
-               </img>
-
-            </div>
-            
-            <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
-            </div>
-            <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
-            </div>
-
-        </div>
 
     </div>
    
