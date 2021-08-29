@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BurgerCard from './BurgerCard'
 // import Cards from './Cards'
-import {burgerData} from "/home/ismayil/ismayildemo/special-octo-guacamole/src/data/burger"
+import {burgerData} from "./burger"
 export default class BurgerRestaurant extends Component {
     constructor(props){
         super(props);
