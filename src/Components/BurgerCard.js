@@ -1,20 +1,29 @@
 import React, { Component } from 'react'
 
 export default class BurgerCard extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        cardDetails : []
+
+      };
+
+     }
+
     render() {
         return (
-            <div className="w-1/5 shadow-2xl rounded-xl my-7 mx-5">
-            <div className="justify-center  mx-5 my-5">
-               <img src="https://i.ibb.co/82zyV1s/borgars.png" className="justify-center">
+            <div className="lg:w-1/5 sm:w-full shadow-2xl rounded-xl my-7 mx-5">
+            <div className="justify-center content-center mx-5 my-5 flex">
+               <img src={this.props.cardDetails.image} className="justify-center content-center" alt="">
                </img>
 
             </div>
             
             <div className="text-center text-3xl font-bold">
-              sunday cheeseburger $6 only
+            {this.props.cardDetails.title} 
             </div>
             <div className="text-center">
-              1 Flame Grilled Cheeseburger Sunday only. Valid until Dec 2020.
+            {this.props.cardDetails.subtitle} 
             </div>
 
         </div>
