@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'custom-brown':'#BAA333',
-      }
+        'mybrown':'#926239;',
+      },
+      backgroundImage: theme => ({
+        'mainImage': "url('http://traversymedia.com/downloads/assets/beachshowcase.jpg')",
+       })
     },
   },
   variants: {
