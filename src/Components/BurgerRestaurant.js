@@ -22,7 +22,7 @@ export default class BurgerRestaurant extends Component {
      
     </div>
     <div className="bg-purple-700">
-        top other sections
+        top other sections -check
     </div>
     <div className="bg-purple-700 text-center text-6xl font-bold pb-3">
        OUR OFFERS
