@@ -8,31 +8,14 @@ export default class BurgerRestaurant extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            totalPages:3,
+            currentPage:1,
+            perPageCount:10
           };
     }
     componentDidMount() {
-        fetch("https://randomuser.me/api?results=5")
-          .then(res => res.json())
-          .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                items: result.results
-                
-              });
-              // console.log(result.results.email)
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
+      this.fetchData()
       }
       render() {
         const { error, isLoaded, items } = this.state;
@@ -43,8 +26,8 @@ export default class BurgerRestaurant extends Component {
         }else {
           return (
             <div className="bg-gray">
-            <div className="">
-            </div>
+                  <div className="">
+                     </div>
             <div className="bg-purple-700">
                 top other sections -check
             </div>
@@ -52,19 +35,22 @@ export default class BurgerRestaurant extends Component {
                OUR OFFERS
             </div>
             <div className="flex flex-wrap justify-center mx-20 my-0">
-               {items.map(item => {
+              <div className="flex flex-wrap justify-center mx-20 my-0">
+              {items.map(item => {
                return <BurgerCard  profile={item} key={item.id.value}> </BurgerCard>
                 })
                     }
+
+              </div>
+              {this.state.currentPage < this.state.totalPages && <div>
+                  <button onClick = {this.loadmoreclick} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center">
+                 Load More
+                   </button>
+
+                 </div> }
+
             </div>
 
-
-
-    
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-            
             </div>
     
     
@@ -73,5 +59,36 @@ export default class BurgerRestaurant extends Component {
         }
     
       }
+
+      loadmoreclick = () => {
+        this.setState({
+          currentPage : this.state.currentPage + 1,
+          perPageCount:10
+
+        });
+    
+        this.fetchData()
+      }
+
+     fetchData = () => {
+      fetch(`https://randomuser.me/api?results=${this.state.perPageCount * this.state.currentPage}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.results
+            
+          });
+          console.log(`data from api ${result.results}`)
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+     }
 }
 //moving to aws server- deployment-should work on this - dynamically update the changes based on the server
