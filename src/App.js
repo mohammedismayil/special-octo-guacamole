@@ -7,6 +7,7 @@
 // import NavBar from './Components/NavBar';
 // import FullscreenLanding from './Components/FullscreenLanding';
 import BurgerRestaurant from './Components/BurgerRestaurant';
+import CategoryDetails from './Components/CategoryDetails';
 function App() {
 
   return (
@@ -22,7 +23,8 @@ function App() {
 <BurgerRestaurant>
   
 </BurgerRestaurant>
-
+<CategoryDetails>
+</CategoryDetails>
     </div>
 
   );
