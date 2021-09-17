@@ -15,33 +15,33 @@ const client = new ApolloClient({
   uri: 'https://passup.trioangle.com/graphql',
   cache: new InMemoryCache()
 });
-client
-  .query({
-    query: gql`
-    query{
-      getCategoryDetails{
-       currencyCode
-       category{
-         id
-         name
-       }
-     }
-     }
-    `
-  })
-  .then(result => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//     query{
+//       getCategoryDetails{
+//        currencyCode
+//        category{
+//          id
+//          name
+//        }
+//      }
+//      }
+//     `
+//   })
+//   .then(result => console.log(result));
 
-  const GetCategory = gql`
-  query{
-    getCategoryDetails{
-     currencyCode
-     category{
-       id
-       name
-     }
-   }
-   }
-   `;
+//   const GetCategory = gql`
+//   query{
+//     getCategoryDetails{
+//      currencyCode
+//      category{
+//        id
+//        name
+//      }
+//    }
+//    }
+//    `;
 
 ReactDOM.render(
   <React.StrictMode>

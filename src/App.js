@@ -8,6 +8,7 @@
 // import FullscreenLanding from './Components/FullscreenLanding';
 import BurgerRestaurant from './Components/BurgerRestaurant';
 import CategoryDetails from './Components/CategoryDetails';
+import ProductCard from './Components/ProductCard';
 function App() {
 
   return (
@@ -20,11 +21,14 @@ function App() {
   
 </FullscreenLanding> */}
 
-<BurgerRestaurant>
+{/* <BurgerRestaurant>
   
 </BurgerRestaurant>
 <CategoryDetails>
-</CategoryDetails>
+</CategoryDetails> */}
+<ProductCard>
+  
+</ProductCard>
     </div>
 
   );
