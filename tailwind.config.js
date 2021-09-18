@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'mybrown':'#926239;',
+        'themeblue': '#00afd7;',
       },
       backgroundImage: theme => ({
         'mainImage': "url('http://traversymedia.com/downloads/assets/beachshowcase.jpg')",

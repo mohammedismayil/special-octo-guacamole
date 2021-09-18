@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
-import {productData} from '/home/ismayil/ismayildemo/special-octo-guacamole/src/MockData/productData' 
+// import {productData} from '/home/ismayil/ismayildemo/special-octo-guacamole/src/MockData/productData' 
 export default class ProductCard extends Component {
-    chatClicked() {
+    chatClicked = () => {
      console.log("chat has been clicked");
     }
     render() {
         return (
             <div className="rounded-lg overflow-hidden shadow-md h-64 w-1/5 mx-5 my-5">
                
-                <div className="h-44 bg-black hover:scale-115 transform transition duration-500">
+                <div className="h-44 hover:scale-115 transform transition duration-500 relative">
+                    <div className = "bg-themeblue rounded-full flex w-20 -ml-2 absolute">
+                        <div className="m-auto text-white">
+                        Free
+
+                        </div>
+                        
+
+                    </div>
 
                 <img className ="h-full w-full " alt = "" src="https://passup.trioangle.com/fileStorage/uploads/products/10180/products_1631627536579.jpg">
                 </img>
@@ -28,8 +36,7 @@ export default class ProductCard extends Component {
 
                         </div>
 
-                        <div className="mr-2" onClick = {this.chatClicked()}>
-
+                        <div className="mr-2" onClick = {this.chatClicked}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
                        </svg> 
