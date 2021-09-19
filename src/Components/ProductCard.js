@@ -8,18 +8,26 @@ export default class ProductCard extends Component {
         return (
             <div className="rounded-lg overflow-hidden shadow-md h-64 w-1/5 mx-5 my-5">
                
-                <div className="h-44 hover:scale-115 transform transition duration-500 relative">
-                    <div className = "bg-themeblue rounded-full flex w-20 -ml-2 absolute">
-                        <div className="m-auto text-white">
-                        Free
+                <div className="h-44 relative">
 
+        
+                    <div className = "h-full w-full relative hover:scale-110 transform transition duration-500 transform">
+                    <img className ="h-full w-full  " alt = "" src="https://passup.trioangle.com/fileStorage/uploads/products/10180/products_1631627536579.jpg">
+                    </img>
+
+
+                    </div>
+                    <div className = " absolute top-0 bg-themeblue overflow-hidden rounded-full flex w-20 -ml-5 justify-center">
+                        <div className="m-auto text-white text-center content-center">
+                        Free
                         </div>
                         
 
                     </div>
+             
+                
 
-                <img className ="h-full w-full " alt = "" src="https://passup.trioangle.com/fileStorage/uploads/products/10180/products_1631627536579.jpg">
-                </img>
+
 
                 </div>
                 <div className="flex my-3">

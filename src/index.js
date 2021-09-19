@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql
-} from "@apollo/client";
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+//   ApolloProvider,
+//   useQuery,
+//   gql
+// } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: 'https://passup.trioangle.com/graphql',
-  cache: new InMemoryCache()
-});
+// const client = new ApolloClient({
+//   uri: 'https://passup.trioangle.com/graphql',
+//   cache: new InMemoryCache()
+// });
 // client
 //   .query({
 //     query: gql`
@@ -46,10 +46,10 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
 
-<ApolloProvider client={client}>
+{/* <ApolloProvider client={client}> */}
     <App />
-  </ApolloProvider>,
-  </React.StrictMode>,
+  {/* </ApolloProvider> */}
+ </React.StrictMode>,
   document.getElementById('root')
 );
 
