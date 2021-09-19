@@ -18,7 +18,8 @@ export default class HomeInputFields extends Component {
   };
   onAddButtonTapped = () => {
     // const post = [{ id: 1, title: this.state.posts.title }];
-    this.props.submitInputData(this.state.posts);
+    this.props.postData.push(this.state.posts);
+    this.props.submitInputData(this.props.postData);
   };
   render() {
     return (
