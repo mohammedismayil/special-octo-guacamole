@@ -4,10 +4,11 @@ import HomeInputFields from "../Components/Home/HomeInputFields";
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    const posts = [];
     this.state = { posts: [] };
-    // this.setState = () => {
-    //   this.posts = posts;
-    // };
+    this.setState = () => {
+      this.posts = posts;
+    };
   }
 
   render() {
@@ -27,14 +28,20 @@ export default class Home extends Component {
             <li key={post.id}>{post.title}</li>
           ))}
         </ul>
+        <ul>
+        
+            <li>joj</li>
+         
+        </ul>
       </div>
     );
   }
   reloadHomeDataFromInput = (inputData) => {
     console.log("ok call back");
-    console.log(inputData);
+    
     this.setState({
       posts: inputData,
     });
+    console.log(this.state.posts);
   };
 }

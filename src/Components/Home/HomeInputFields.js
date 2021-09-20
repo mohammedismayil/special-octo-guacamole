@@ -11,7 +11,14 @@ export default class HomeInputFields extends Component {
   }
   onChangeName = (event) => {
     this.setState({
-      posts: [{ id: 2, title: event.target.value }],
+      posts: [
+        {
+          id: Math.random()
+            .toString(36)
+            .replace("0.", "todo" || ""),
+          title: event.target.value,
+        },
+      ],
     });
     // setName(event.target.value);
     // this.props.submitInputData(event.target.name.value);
