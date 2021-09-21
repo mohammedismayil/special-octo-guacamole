@@ -25,32 +25,21 @@ export default class HomeInputFields extends Component {
   onAddButtonTapped = () => {
     // const post = [{ id: 1, title: this.state.posts.title }];
     this.setState({
-      postData: [
+      postData: this.state.postData.concat([
         {
-          id:new Date().getUTCMilliseconds(),
-          title:this.state.name,
-        },
-      ],
+              id:new Date().getUTCMilliseconds(),
+              title:this.state.title,
+            },
+      ]),
     });
     // this.props.postData.push(this.state.posts);
     this.props.reloadHomeDataFromInput(
-      // [
-      //   {
-      //     id:new Date().getUTCMilliseconds(),
-      //     title:this.state.name,
-      //   },
-      // ],
-        // this.state.postData.push([
-        //   {
-        //     id:new Date().getUTCMilliseconds(),
-        //     title:this.state.name,
-        //   },
-        // ]),
+
       this.state.postData.concat([
         {
-          id:new Date().getUTCMilliseconds(),
-          title:this.state.name,
-        },
+              id:new Date().getUTCMilliseconds(),
+              title:this.state.title,
+            },
       ]),
       console.log("from reloadmehtod"),
       console.log(this.state.postData)
@@ -67,6 +56,7 @@ export default class HomeInputFields extends Component {
         ></input>
         <button onClick={this.onAddButtonTapped}>add</button>
         <h2>{this.state.name}</h2>
+       
       </div>
     );
   }
