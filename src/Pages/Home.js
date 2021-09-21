@@ -41,10 +41,12 @@ export default class Home extends Component {
 
         <ul>
           {this.state.anotherPostData.map((post) => (
-            <li key={post.id}>{post.id}{post.title}</li>
+            <li key={post.id}>
+              {post.id}
+              {post.title}
+            </li>
           ))}
         </ul>
-        <h2>{this.state.name}</h2>
       </div>
     );
   }

@@ -5,9 +5,11 @@ export default class HomeInputFields extends Component {
   constructor(props) {
     super(props);
     
-    this.state = { postData: [] ,name :""};
+    this.state = { postData: [],name:"",title:""};
     this.setState = () => {
       this.postData = [];
+      this.title = "";
+      this.name = ""
     };
     this.onAddButtonTapped.bind(this);
     this.onChangeName.bind(this);
@@ -17,8 +19,9 @@ export default class HomeInputFields extends Component {
 
     this.setState({
       name:event.target.value,
-    });
-    console.log(event.target.value)
+      title:event.target.value,
+    })
+    console.log(this.state.title)
     // setName(event.target.value);
     // this.props.submitInputData(event.target.name.value);
   };
@@ -27,26 +30,19 @@ export default class HomeInputFields extends Component {
     this.setState({
       postData: [
         {
-          id:1,
-          title:"mahle",
-        },
-        {
-          id:2,
-          title:"kajol",
+          id:new Date().getUTCMilliseconds(),
+          title:this.state.title,
         },
       ],
     });
     // this.props.postData.push(this.state.posts);
-    this.props.reloadHomeDataFromInput([
-      {
-        id:1,
-        title:"mahle",
-      },
-      {
-        id:2,
-        title:"kajol",
-      },
-    ]);
+    this.props.reloadHomeDataFromInput(
+      [
+        {
+          id:new Date().getUTCMilliseconds(),
+          title:this.state.title,
+        },
+      ]);
   };
   render() {
     return (
@@ -55,9 +51,11 @@ export default class HomeInputFields extends Component {
           type="name"
           onChange={this.onChangeName}
           value={this.state.title}
+          placeholder="Add a to do"
         ></input>
         <button onClick={this.onAddButtonTapped}>add</button>
         <h2>{this.state.name}</h2>
+        
       </div>
     );
   }
