@@ -5,12 +5,12 @@ export default class HomeInputFields extends Component {
   constructor(props) {
     super(props);
     
-    this.state = { postData: [],name:"",title:""};
-    this.setState = () => {
-      this.postData = [];
-      this.title = "";
-      this.name = ""
-    };
+    this.state = { postData: this.props.postData,name:'',title:''};
+    // this.setState = () => {
+    //   this.postData = this.props.postData;
+    //   // this.title = "";
+    //   // this.name = ""
+    // };
     this.onAddButtonTapped.bind(this);
     this.onChangeName.bind(this);
   }
@@ -21,9 +21,6 @@ export default class HomeInputFields extends Component {
       name:event.target.value,
       title:event.target.value,
     })
-    console.log(this.state.title)
-    // setName(event.target.value);
-    // this.props.submitInputData(event.target.name.value);
   };
   onAddButtonTapped = () => {
     // const post = [{ id: 1, title: this.state.posts.title }];
@@ -31,18 +28,33 @@ export default class HomeInputFields extends Component {
       postData: [
         {
           id:new Date().getUTCMilliseconds(),
-          title:this.state.title,
+          title:this.state.name,
         },
       ],
     });
     // this.props.postData.push(this.state.posts);
     this.props.reloadHomeDataFromInput(
-      [
+      // [
+      //   {
+      //     id:new Date().getUTCMilliseconds(),
+      //     title:this.state.name,
+      //   },
+      // ],
+        // this.state.postData.push([
+        //   {
+        //     id:new Date().getUTCMilliseconds(),
+        //     title:this.state.name,
+        //   },
+        // ]),
+      this.state.postData.concat([
         {
           id:new Date().getUTCMilliseconds(),
-          title:this.state.title,
+          title:this.state.name,
         },
-      ]);
+      ]),
+      console.log("from reloadmehtod"),
+      console.log(this.state.postData)
+    );
   };
   render() {
     return (
@@ -50,12 +62,11 @@ export default class HomeInputFields extends Component {
         <input
           type="name"
           onChange={this.onChangeName}
-          value={this.state.title}
+          value={this.state.name}
           placeholder="Add a to do"
         ></input>
         <button onClick={this.onAddButtonTapped}>add</button>
         <h2>{this.state.name}</h2>
-        
       </div>
     );
   }

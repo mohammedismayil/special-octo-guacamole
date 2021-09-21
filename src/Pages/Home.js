@@ -8,7 +8,7 @@ export default class Home extends Component {
    
     this.state = { posts: [],anotherPostData: [],name:""};
     // this.setState = () => {
-    //   this.posts = [];
+    //   this.anotherPostData = this.props.anotherPostData;
     // };
     this.reloadHomeDataFromInput.bind(this);
   
@@ -41,10 +41,7 @@ export default class Home extends Component {
 
         <ul>
           {this.state.anotherPostData.map((post) => (
-            <li key={post.id}>
-              {post.id}
-              {post.title}
-            </li>
+            <li key={post.id}>{post.title}</li>
           ))}
         </ul>
       </div>
