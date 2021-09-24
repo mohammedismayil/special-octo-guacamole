@@ -11,11 +11,12 @@ export default class Home extends Component {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
     this.reloadHomeDataFromInput.bind(this);
-    // this.removeToDo.bind(this);
+    this.removeToDo = this.removeToDo.bind(this);
+    
   }
   removeToDo = (id) => {
 
-console.log("deleting a element")
+   console.log("deleting a element")
     this.setState({anotherPostData: this.state.anotherPostData.filter(item => item.id !== id)}
       ,() => {
         console.log("after deleting callback");
@@ -23,9 +24,12 @@ console.log("deleting a element")
   
   }
   reloadHomeDataFromInput = (postData) => {
+    console.log("reloading the home component");
     this.setState({
       anotherPostData:postData,
       name:"ismayil",
+    },() => {
+      console.log("reloading set state callback");
     });
     
    
@@ -45,12 +49,12 @@ console.log("deleting a element")
         <ul>
           {this.state.anotherPostData.map((post) => (
             <li key={post.id}>
-              <div className="flex">
+              <div className="flex pt-2">
                 <div className={post.isDone ? "line-through" : "none"}>
                   {post.title}
                 </div>
-                <div className="bg-gray-900">
-                  <button onClick={this.removeToDo(post.id)}>
+                <div className="" onClick={() => this.removeToDo(post.id)}>
+                  <button >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
