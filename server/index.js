@@ -4,6 +4,11 @@ const cors = require('cors')
 const app = express()
 const apiPort = 3001
 const db = require('./db')
+// const SMTPServer = require("smtp-server").SMTPServer;
+// const server = new SMTPServer(options);
+
+
+// server.listen(25,)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
