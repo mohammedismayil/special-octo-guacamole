@@ -4,36 +4,39 @@ import HomeInputFields from "../Components/Home/HomeInputFields";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    
-   
-    this.state = { posts: [],anotherPostData: [],name:'',title:''};
+
+    this.state = { posts: [], anotherPostData: [], name: "", title: "" };
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
     this.reloadHomeDataFromInput.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
-    
   }
   removeToDo = (id) => {
-
-   console.log("deleting a element")
-    this.setState({anotherPostData: this.state.anotherPostData.filter(item => item.id !== id)}
-      ,() => {
+    console.log("deleting a element");
+    this.setState(
+      {
+        anotherPostData: this.state.anotherPostData.filter(
+          (item) => item.id !== id
+        ),
+      },
+      () => {
         console.log("after deleting callback");
-      });
-  
-  }
+      }
+    );
+  };
   reloadHomeDataFromInput = (postData) => {
     console.log("reloading the home component");
-    this.setState({
-      anotherPostData:postData,
-      name:"ismayil",
-    },() => {
-      console.log("reloading set state callback");
-    });
-    
-   
-  }
+    this.setState(
+      {
+        anotherPostData: postData,
+        name: "ismayil",
+      },
+      () => {
+        console.log("reloading set state callback");
+      }
+    );
+  };
   render() {
     // const { posts } = this.state;
     return (
@@ -54,7 +57,7 @@ export default class Home extends Component {
                   {post.title}
                 </div>
                 <div className="" onClick={() => this.removeToDo(post.id)}>
-                  <button >
+                  <button>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
@@ -76,7 +79,5 @@ export default class Home extends Component {
       </div>
     );
   }
-
-
-  
+  //
 }
