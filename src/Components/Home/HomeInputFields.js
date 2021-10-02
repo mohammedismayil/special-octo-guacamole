@@ -32,7 +32,7 @@ export default class HomeInputFields extends Component {
         {
               id:new Date().getUTCMilliseconds(),
               title:this.state.name,
-              isDone:true,
+              isDone:false,
             },
       ])
     },() => {
@@ -58,7 +58,6 @@ export default class HomeInputFields extends Component {
           placeholder="Add a to do"
         ></input>
         <button onClick={this.onAddButtonTapped}>add</button>
-        <h2>{this.state.name}</h2>
       </div>
     );
   }

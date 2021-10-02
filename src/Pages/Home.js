@@ -37,6 +37,20 @@ export default class Home extends Component {
       }
     );
   };
+  switchToDo = (id) => {
+    console.log(id);
+    var updatedPostData = this.state.anotherPostData.map((x) =>
+      x.id === id ? (x.isDone = !x.isDone) : (x.isDone = x.isDone)
+    );
+    this.setState(
+      {
+        anotherPostData: updatedPostData,
+      },
+      () => {
+        console.log("reloading set state callback");
+      }
+    );
+  };
   render() {
     // const { posts } = this.state;
     return (
@@ -56,6 +70,9 @@ export default class Home extends Component {
                 <div className={post.isDone ? "line-through" : "none"}>
                   {post.title}
                 </div>
+                <button onClick={() => this.switchToDo(post.id)}>
+                  {post.isDone ? "set as not done" : "set as done"}
+                </button>
                 <div className="" onClick={() => this.removeToDo(post.id)}>
                   <button>
                     <svg
