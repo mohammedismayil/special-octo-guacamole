@@ -11,14 +11,14 @@ export default class Home extends Component {
     // };
     this.reloadHomeDataFromInput.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
+    this.switchToDo = this.switchToDo.bind(this);
   }
   removeToDo = (id) => {
     console.log("deleting a element");
     this.setState(
       {
-        anotherPostData: this.state.anotherPostData.filter(
-          (item) => item.id !== id
-        ),
+        anotherPostData: this.state.anotherPostData.splice(this.state.anotherPostData.findIndex(a => a.id === id) , 1)
+
       },
       () => {
         console.log("after deleting callback");
@@ -34,20 +34,27 @@ export default class Home extends Component {
       },
       () => {
         console.log("reloading set state callback");
+        console.log(this.state.anotherPostData);
       }
     );
   };
   switchToDo = (id) => {
     console.log(id);
-    var updatedPostData = this.state.anotherPostData.map((x) =>
-      x.id === id ? (x.isDone = !x.isDone) : (x.isDone = x.isDone)
-    );
+    console.log(this.state.anotherPostData);
+
+   
     this.setState(
       {
-        anotherPostData: updatedPostData,
+        anotherPostData: this.state.anotherPostData.map((post) => {
+          if (post.id === id) {
+            return Object.assign({}, post, { isDone: !post.isDone });
+          }
+          return post;
+        }),
       },
       () => {
-        console.log("reloading set state callback");
+        // console.log(this.state.anotherPostData);
+        // this.reloadHomeDataFromInput(this.state.anotherPostData);
       }
     );
   };
