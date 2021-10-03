@@ -24,30 +24,27 @@ export default class HomeInputFields extends Component {
   
   };
   onAddButtonTapped = () => {
-   
-   
-   
-    this.setState({
-      postData: this.state.postData.concat([
-        {
-              id:new Date().getUTCMilliseconds(),
-              title:this.state.name,
-              isDone:false,
-            },
-      ])
-    },() => {
-      this.addNewTodo();
-    });
+    console.log(this.state.postData);
+    this.setState(
+      {
+        postData: this.state.postData.concat([
+          {
+            id: new Date().getUTCMilliseconds(),
+            title: this.state.name,
+            isDone: false,
+          },
+        ]),
+      },
+      () => {
+        this.addNewTodo();
+      }
+    );
     // this.props.postData.push(this.state.posts);
-
-    
-    
   };
   addNewTodo = () => {
-    this.props.reloadHomeDataFromInput(
-      this.state.postData,
-    );
-  }
+    this.props.reloadHomeDataFromInput(this.state.postData);
+    console.log(this.state.postData);
+  };
   render() {
     return (
       <div>

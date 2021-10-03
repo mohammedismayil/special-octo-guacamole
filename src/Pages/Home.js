@@ -9,7 +9,7 @@ export default class Home extends Component {
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
-    this.reloadHomeDataFromInput.bind(this);
+    this.reloadHomeDataFromInput  = this.reloadHomeDataFromInput.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
     this.switchToDo = this.switchToDo.bind(this);
   }
@@ -17,8 +17,9 @@ export default class Home extends Component {
     console.log("deleting a element");
     this.setState(
       {
-        anotherPostData: this.state.anotherPostData.splice(this.state.anotherPostData.findIndex(a => a.id === id) , 1)
-
+        anotherPostData: this.state.anotherPostData.filter(
+          (post) => post.id !== id
+        ),
       },
       () => {
         console.log("after deleting callback");
@@ -32,17 +33,10 @@ export default class Home extends Component {
         anotherPostData: postData,
         name: "ismayil",
       },
-      () => {
-        console.log("reloading set state callback");
-        console.log(this.state.anotherPostData);
-      }
+      () => {}
     );
   };
   switchToDo = (id) => {
-    console.log(id);
-    console.log(this.state.anotherPostData);
-
-   
     this.setState(
       {
         anotherPostData: this.state.anotherPostData.map((post) => {
