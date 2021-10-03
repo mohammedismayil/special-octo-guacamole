@@ -62,6 +62,7 @@ export default class Home extends Component {
         <HomeInputFields
           reloadHomeDataFromInput={this.reloadHomeDataFromInput}
           postData={this.state.anotherPostData}
+          key={this.state.anotherPostData}
         ></HomeInputFields>
 
         <ul>
