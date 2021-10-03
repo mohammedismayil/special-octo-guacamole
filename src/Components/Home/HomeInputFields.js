@@ -15,6 +15,8 @@ export default class HomeInputFields extends Component {
     this.onChangeName.bind(this);
   }
   onChangeName = (event) => {
+    event.preventDefault()
+
     
     this.setState({
       name: event.target.value,
@@ -25,20 +27,24 @@ export default class HomeInputFields extends Component {
   };
   onAddButtonTapped = () => {
     console.log(this.state.postData);
-    this.setState(
-      {
-        postData: this.state.postData.concat([
-          {
-            id: new Date().getUTCMilliseconds(),
-            title: this.state.name,
-            isDone: false,
-          },
-        ]),
-      },
-      () => {
-        this.addNewTodo();
-      }
-    );
+
+    if (this.state.name !== "") {
+      this.setState(
+        {
+          postData: this.state.postData.concat([
+            {
+              id: new Date().getUTCMilliseconds(),
+              title: this.state.name,
+              isDone: false,
+            },
+          ]),
+        },
+        () => {
+          this.addNewTodo();
+        }
+      );
+    }
+
     // this.props.postData.push(this.state.posts);
   };
   addNewTodo = () => {
@@ -47,14 +53,23 @@ export default class HomeInputFields extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="justify-center content-center m-auto flex mt-5">
+
+        <div>
         <input
           type="name"
+          className="border border-red-500 border-opacity-100 border-transparent"
           onChange={this.onChangeName}
           value={this.state.name}
           placeholder="Add a to do"
         ></input>
-        <button onClick={this.onAddButtonTapped}>add</button>
+        </div>
+     
+
+        <div className="mx-5 bg-purple-900 rounded-md px-5 text-white">
+        <button onClick={this.onAddButtonTapped}>Add</button>
+        </div>
+       
       </div>
     );
   }

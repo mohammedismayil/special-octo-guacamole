@@ -37,11 +37,14 @@ export default class Home extends Component {
     );
   };
   switchToDo = (id) => {
+    console.log("Switch Tapped")
     this.setState(
       {
         anotherPostData: this.state.anotherPostData.map((post) => {
           if (post.id === id) {
-            return Object.assign({}, post, { isDone: !post.isDone });
+
+            post.isDone = !post.isDone
+            return post;
           }
           return post;
         }),
@@ -55,46 +58,65 @@ export default class Home extends Component {
   render() {
     // const { posts } = this.state;
     return (
-      <div className="m-auto mx-32 h-64 rounded-lg">
+      <div className="m-auto mx-2  mt-1 rounded-lg bg-gray-100">
         <div className="text-center text-3xl content-center justify-center">
           Home page
         </div>
-        <HomeInputFields
-          reloadHomeDataFromInput={this.reloadHomeDataFromInput}
-          postData={this.state.anotherPostData}
-          key={this.state.anotherPostData}
-        ></HomeInputFields>
+        <div className="flex pb-10 mb-10">
+          <div className=" m-auto justify-center content-center">
+            <div className="flex ">
+              <HomeInputFields
+                reloadHomeDataFromInput={this.reloadHomeDataFromInput}
+                postData={this.state.anotherPostData}
+                key={this.state.anotherPostData}
+              ></HomeInputFields>
+            </div>
 
-        <ul>
-          {this.state.anotherPostData.map((post) => (
-            <li key={post.id}>
-              <div className="flex pt-2">
-                <div className={post.isDone ? "line-through" : "none"}>
-                  {post.title}
-                </div>
-                <button onClick={() => this.switchToDo(post.id)}>
-                  {post.isDone ? "set as not done" : "set as done"}
-                </button>
-                <div className="" onClick={() => this.removeToDo(post.id)}>
-                  <button>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+            <div>
+              <ul>
+                {this.state.anotherPostData.map((post) => (
+                  <li key={post.id}>
+                    <div className="flex pt-2">
+                      <div
+                        className={
+                          post.isDone
+                            ? "w-3 h-10  bg-green-900"
+                            : "w-3 h-10  bg-red-700"
+                        }
+                      ></div>
+                      <div className="font-bold">{post.title}</div>
+                      <div>
+                        <button onClick={() => this.switchToDo(post.id)}>
+                          {post.isDone ? "set as not done" : "set as done"}
+                        </button>
+                      </div>
+
+                      <div
+                        className=""
+                        onClick={() => this.removeToDo(post.id)}
+                      >
+                        <button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
