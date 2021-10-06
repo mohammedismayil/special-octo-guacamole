@@ -5,7 +5,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { posts: [], anotherPostData: JSON.parse(localStorage["todoArr"]), name: "", title: "" };
+    this.state = { posts: [], anotherPostData: [], name: "", title: "" };
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
