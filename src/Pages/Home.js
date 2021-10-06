@@ -9,7 +9,7 @@ export default class Home extends Component {
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
-    this.reloadHomeDataFromInput  = this.reloadHomeDataFromInput.bind(this);
+    this.reloadHomeDataFromInput = this.reloadHomeDataFromInput.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
     this.switchToDo = this.switchToDo.bind(this);
   }
@@ -37,13 +37,12 @@ export default class Home extends Component {
     );
   };
   switchToDo = (id) => {
-    console.log("Switch Tapped")
+    console.log("Switch Tapped");
     this.setState(
       {
         anotherPostData: this.state.anotherPostData.map((post) => {
           if (post.id === id) {
-
-            post.isDone = !post.isDone
+            post.isDone = !post.isDone;
             return post;
           }
           return post;
@@ -125,6 +124,9 @@ export default class Home extends Component {
                           </svg>
                         </button>
                       </div>
+                    </div>
+                    <div>
+                      <h2> {post.time}</h2>
                     </div>
                   </li>
                 ))}

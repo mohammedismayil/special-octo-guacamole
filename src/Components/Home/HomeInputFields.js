@@ -36,6 +36,7 @@ export default class HomeInputFields extends Component {
               id: new Date().getUTCMilliseconds(),
               title: this.state.name,
               isDone: false,
+              time: Date().toLocaleString("en-US", { day: "2-digit" }),
             },
           ]),
         },
