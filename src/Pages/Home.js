@@ -5,7 +5,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { posts: [], anotherPostData: [], name: "", title: "" };
+    this.state = { posts: [], anotherPostData: JSON.parse(localStorage["todoArr"]), name: "", title: "" };
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
@@ -71,66 +71,57 @@ export default class Home extends Component {
               ></HomeInputFields>
             </div>
 
-            <div>
-              <ul>
-                {this.state.anotherPostData.map((post) => (
-                  <li key={post.id}>
-                    <div className="flex pt-2">
-                      <div
-                        className={
-                          post.isDone
-                            ? "w-3 h-10  bg-green-900"
-                            : "w-3 h-10  bg-red-700"
-                        }
-                      ></div>
-                      <div className="font-bold">{post.title}</div>
-                      <div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
+            <div className="bg-gray-900">
+              <div className="bg-red-100 w-auto">
+                <ul>
+                  {this.state.anotherPostData.map((post) => (
+                    <li key={post.id}>
+                      <div className="flex pt-2">
+                        <div
+                          className={
+                            post.isDone
+                              ? "w-3 h-10  bg-green-900"
+                              : "w-3 h-10  bg-red-700"
+                          }
+                        ></div>
+
+                        <div className="px-2">
+                          <div className="font-bold">{post.title}</div>
+                          <div>
+                            <h2> {post.time}</h2>
+                          </div>
+                        </div>
+
+                        <div>
+                          <button onClick={() => this.switchToDo(post.id)}>
+                            {post.isDone ? "set as not done" : "set as done"}
+                          </button>
+                        </div>
+
+                        <div
+                          className=""
+                          onClick={() => this.removeToDo(post.id)}
                         >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-
-                        <button onClick={() => this.switchToDo(post.id)}>
-                          {post.isDone ? "set as not done" : "set as done"}
-                        </button>
+                          <button>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-5 w-5"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
-
-                      <div
-                        className=""
-                        onClick={() => this.removeToDo(post.id)}
-                      >
-                        <button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <h2> {post.time}</h2>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
