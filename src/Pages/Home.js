@@ -5,7 +5,12 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { posts: [], anotherPostData: [], name: "", title: "" };
+var arr = [];
+    if (localStorage.getItem("todoArr") != null){
+      arr = JSON.parse(localStorage["todoArr"]);
+    }
+
+    this.state = { posts: [], anotherPostData: arr, name: "", title: "" };
     // this.setState = () => {
     //   this.anotherPostData = this.props.anotherPostData;
     // };
@@ -72,7 +77,7 @@ export default class Home extends Component {
             </div>
 
             <div className="bg-gray-900">
-              <div className="bg-red-100 w-auto">
+              <div className="bg-red-100 w-auto rounded-lg my-5">
                 <ul>
                   {this.state.anotherPostData.map((post) => (
                     <li key={post.id}>
@@ -86,7 +91,9 @@ export default class Home extends Component {
                         ></div>
 
                         <div className="px-2">
-                          <div className="font-bold">{post.title}</div>
+                          <div className="font-extrabold text-xl">
+                            {post.title}
+                          </div>
                           <div>
                             <h2> {post.time}</h2>
                           </div>
