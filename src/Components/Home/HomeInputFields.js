@@ -70,7 +70,7 @@ export default class HomeInputFields extends Component {
   };
   render() {
     return (
-      <div className="justify-center content-center m-auto flex mt-5">
+      <div className="justify-center content-center lg:mx-20 md:mx-10  sm:mx-0 flex mt-5">
         <div>
           <input
             type="name"

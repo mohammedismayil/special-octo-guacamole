@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.todocard{
+    @apply flex bg-gray-100 rounded-md shadow-lg my-5
+}

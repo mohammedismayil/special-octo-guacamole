@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import HomeInputFields from "../Components/Home/HomeInputFields";
 // import { useState } from "react";
+
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
 
-var arr = [];
-    if (localStorage.getItem("todoArr") != null){
+    var arr = [];
+    if (localStorage.getItem("todoArr") != null) {
       arr = JSON.parse(localStorage["todoArr"]);
     }
 
@@ -27,6 +29,10 @@ var arr = [];
         ),
       },
       () => {
+        localStorage.setItem(
+          "todoArr",
+          JSON.stringify(this.state.anotherPostData)
+        );
         console.log("after deleting callback");
       }
     );
@@ -38,16 +44,24 @@ var arr = [];
         anotherPostData: postData,
         name: "ismayil",
       },
-      () => {}
+      () => {
+        localStorage.setItem(
+          "todoArr",
+          JSON.stringify(this.state.anotherPostData)
+        );
+        // localStorage.setItem('todoArr', JSON.stringify(this.state.anotherPostData));
+      }
     );
   };
-  switchToDo = (id) => {
+
+  switchToDo = (id, index) => {
     console.log("Switch Tapped");
     this.setState(
       {
         anotherPostData: this.state.anotherPostData.map((post) => {
           if (post.id === id) {
             post.isDone = !post.isDone;
+
             return post;
           }
           return post;
@@ -56,19 +70,29 @@ var arr = [];
       () => {
         // console.log(this.state.anotherPostData);
         // this.reloadHomeDataFromInput(this.state.anotherPostData);
+
+        this.state.anotherPostData.push(
+          this.state.anotherPostData.splice(index, 1)[0]
+        );
+
+        localStorage.setItem(
+          "todoArr",
+          JSON.stringify(this.state.anotherPostData)
+        );
+        // this.reloadHomeDataFromInput(this.state.anotherPostData);
       }
     );
   };
   render() {
     // const { posts } = this.state;
     return (
-      <div className="m-auto mx-2  mt-1 rounded-lg bg-gray-100">
+      <div className="m-auto mx-2  mt-1 rounded-lg">
         <div className="text-center text-3xl content-center justify-center">
           Home page
         </div>
         <div className="flex pb-10 mb-10">
           <div className=" m-auto justify-center content-center">
-            <div className="flex ">
+            <div className="flex justify-center content-center ">
               <HomeInputFields
                 reloadHomeDataFromInput={this.reloadHomeDataFromInput}
                 postData={this.state.anotherPostData}
@@ -76,17 +100,17 @@ var arr = [];
               ></HomeInputFields>
             </div>
 
-            <div className="bg-gray-900">
-              <div className="bg-red-100 w-auto rounded-lg my-5">
+            <div className="justify-center content-center">
+              <div className="w-auto mt-5 ">
                 <ul>
-                  {this.state.anotherPostData.map((post) => (
+                  {this.state.anotherPostData.map((post, index) => (
                     <li key={post.id}>
-                      <div className="flex pt-2">
+                      <div className="todocard">
                         <div
                           className={
                             post.isDone
-                              ? "w-3 h-10  bg-green-900"
-                              : "w-3 h-10  bg-red-700"
+                              ? "w-3 h-auto  bg-green-900 my-1"
+                              : "w-3 h-auro bg-red-700 my-1"
                           }
                         ></div>
 
@@ -99,30 +123,34 @@ var arr = [];
                           </div>
                         </div>
 
-                        <div>
-                          <button onClick={() => this.switchToDo(post.id)}>
-                            {post.isDone ? "set as not done" : "set as done"}
-                          </button>
-                        </div>
-
-                        <div
-                          className=""
-                          onClick={() => this.removeToDo(post.id)}
-                        >
-                          <button>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
+                        <div className="flex  m-auto mr-2">
+                          <div className="mr-2">
+                            <button
+                              onClick={() => this.switchToDo(post.id, index)}
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </button>
+                              {post.isDone ? "set as not done" : "set as done"}
+                            </button>
+                          </div>
+
+                          <div
+                            className="m-auto"
+                            onClick={() => this.removeToDo(post.id)}
+                          >
+                            <button>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </li>

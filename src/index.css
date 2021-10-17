@@ -13,3 +13,7 @@
 .card-zoom:hover .card-zoom-image {
   @apply scale-150;
 }
+
+.todocard{
+  @apply flex bg-gray-100 rounded-md shadow-lg my-5
+}
