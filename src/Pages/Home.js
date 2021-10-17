@@ -62,6 +62,10 @@ export default class Home extends Component {
           if (post.id === id) {
             post.isDone = !post.isDone;
 
+
+            // this.state.anotherPostData.push(
+            //   this.state.anotherPostData.splice(index, 1)[0]
+            // );
             return post;
           }
           return post;
@@ -71,9 +75,7 @@ export default class Home extends Component {
         // console.log(this.state.anotherPostData);
         // this.reloadHomeDataFromInput(this.state.anotherPostData);
 
-        this.state.anotherPostData.push(
-          this.state.anotherPostData.splice(index, 1)[0]
-        );
+        
 
         localStorage.setItem(
           "todoArr",
