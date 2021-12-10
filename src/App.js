@@ -1,14 +1,11 @@
 
-import Home from './Pages/Home';
+import AdminLogin from "./Admin/AdminLogin";
+import Home from "./Pages/Home";
 function App() {
-
   return (
     <div>
-     <Home>
-
-     </Home>
+      <AdminLogin></AdminLogin>
     </div>
-
   );
 }
 
