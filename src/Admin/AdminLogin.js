@@ -4,9 +4,10 @@ export default class AdminLogin extends Component {
   render() {
     return (
       <div>
-        <input type="text">username</input>
+        <input type="text" value="email" />
 
-        <input type="text">password</input>
+        <input type="text" value="password" />
+
         <button>login</button>
       </div>
     );
