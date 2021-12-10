@@ -74,14 +74,14 @@ export default class HomeInputFields extends Component {
         <div>
           <input
             type="name"
-            className="border border-red-500 border-opacity-100 border-transparent"
+            className="border-t-1 border-red-500 border-opacity-100 border-transparent pl-2 rounded pr-0"
             onChange={this.onChangeName}
             value={this.state.name}
             placeholder="Add a to do"
           ></input>
         </div>
 
-        <div className="mx-5 bg-purple-900 rounded-md px-5 text-white">
+        <div className=" bg-purple-900 rounded-md px-5 text-white">
           <button onClick={this.onAddButtonTapped}>Add</button>
         </div>
       </div>
