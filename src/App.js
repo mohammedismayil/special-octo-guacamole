@@ -4,13 +4,6 @@ import Home from "./Pages/Home";
 function App() {
   return (
     <div>
-      {/* {
-        if (localStorage.setItem("isAdminLogged", true)){
-
-        }else{
-
-        }
-      } */}
       <AdminLogin></AdminLogin>
     </div>
   );
